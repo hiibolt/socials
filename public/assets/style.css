@@ -1,0 +1,31 @@
+@font-face {
+  font-family: genshin;
+  src: url(public/zh-cn.ttf);
+}
+
+main {
+  font-family: genshin;
+  text-align: center;
+  vertical-align: center;
+  justify-content: space-between;
+	color: rgb(90,85,66);
+}
+html {
+	background-color: rgb(38,46,59);
+}
+.text-bubble {
+  border-style: solid;
+  border-color: rgb(148,141,125);
+	background: rgb(215,216,198);
+  border-radius: 10px;
+	
+	width: 25rem;
+	
+  margin: auto;
+  width: 50%;
+}
+/* Bubble class for hyperlinks */
+.logo-button {
+	cursor:pointer;
+  text-decoration: none;
+}
