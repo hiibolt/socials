@@ -29,3 +29,12 @@ html {
 	cursor:pointer;
   text-decoration: none;
 }
+img {
+  padding: 1em;
+
+  overflow: hidden;
+}
+.cropped {
+  margin: -100px 0px 0px -180px;
+}
+.brightness { filter: brightness(0); }
