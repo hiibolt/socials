@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+/*
+  Pixel Tahoe — modern macOS Liquid Glass, stepped into pixels.
+  Soft materials + depth depth, not System 7 platinum.
+*/
+:root {
+	--px-ink: #1d1d1f;
+	--px-muted: #6e6e73;
+	--px-paper: #e8eaef;
+	--px-glass: rgba(255, 255, 255, 0.52);
+	--px-glass-strong: rgba(255, 255, 255, 0.72);
+	--px-glass-tint: rgba(255, 255, 255, 0.38);
+	--px-glass-dark: rgba(240, 242, 248, 0.55);
+	--px-window: rgba(255, 255, 255, 0.78);
+	--px-stroke: rgba(255, 255, 255, 0.65);
+	--px-stroke-soft: rgba(0, 0, 0, 0.08);
+	--px-shadow: 0 12px 40px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+	--px-shadow-active: 0 18px 50px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
+	--px-select: #0071e3;
+	--px-select-soft: rgba(0, 113, 227, 0.14);
+	--px-radius: 14px;
+	--px-radius-sm: 8px;
+	--px-radius-pill: 999px;
+	--px-tl-close: #ff5f57;
+	--px-tl-min: #febc2e;
+	--px-tl-max: #28c840;
+	--font-pixel: 'Pixelify Sans', 'SF Pro Rounded', 'Helvetica Neue', sans-serif;
+	--blur: blur(28px) saturate(180%);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	background: var(--px-paper);
+	color: var(--px-ink);
+	font-family: var(--font-pixel);
+	font-size: 18px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+button,
+input {
+	font-family: inherit;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.18);
+	border: 2px solid transparent;
+	background-clip: padding-box;
+	border-radius: var(--px-radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.28);
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+
+::selection {
+	background: var(--px-select);
+	color: #fff;
+}
+
+/* low-end / reduce-transparency: drop expensive glass */
+html[data-glass='off'] {
+	--px-glass: rgba(255, 255, 255, 0.92);
+	--px-glass-strong: rgba(255, 255, 255, 0.96);
+	--px-glass-tint: rgba(248, 249, 252, 0.94);
+	--px-glass-dark: rgba(244, 245, 248, 0.95);
+	--px-window: rgba(255, 255, 255, 0.98);
+	--blur: none;
+}
+
+html[data-perf='low'] .card,
+html[data-perf='low'] .dock {
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+	:root {
+		--px-glass: rgba(255, 255, 255, 0.94);
+		--px-glass-strong: #fff;
+		--px-glass-tint: #f4f5f8;
+		--px-glass-dark: #eef0f4;
+		--px-window: #fff;
+		--blur: none;
+	}
+}

@@ -1,28 +1,22 @@
 {
-  description = "socials - Node.js express app";
+  description = "socials - SvelteKit + Bun desktop site";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs { inherit system; };
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.nodejs_22
-          ];
-        };
-
-        apps.default = {
-          type = "app";
-          program = "${pkgs.writeShellScript "socials" ''
-            exec ${pkgs.nodejs_22}/bin/node ${./.}/index.js
-          ''}";
+          packages = [ pkgs.bun ];
+          shellHook = ''
+            echo "bun $(bun --version) — run: bun install && bun run dev"
+          '';
         };
       });
 }
