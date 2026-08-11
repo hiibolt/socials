@@ -23,6 +23,6 @@ export const socials: Social[] = [
 		id: 'discord',
 		label: 'Discord',
 		url: 'https://discord.com/users/525429484997050379',
-		handle: 'hiibolt'
+		handle: '@hiibolt'
 	}
 ];
