@@ -1,0 +1,12 @@
+node_modules
+.svelte-kit
+build
+result
+.direnv
+.git
+.github
+.vscode
+.env
+.env.*
+*.md
+.DS_Store
