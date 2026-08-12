@@ -18,12 +18,15 @@
 		justify-content: center;
 		gap: 0.55rem;
 		height: 100%;
-		min-height: 0;
+		min-height: 13.5rem;
+		box-sizing: border-box;
+		padding: 0.5rem 0.25rem;
 		text-align: center;
-		container-type: size;
+		overflow: visible;
 	}
 
 	.ring {
+		flex-shrink: 0;
 		padding: 3px;
 		border-radius: 22px;
 		background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(200, 210, 230, 0.5));
@@ -32,8 +35,10 @@
 
 	img {
 		display: block;
-		width: min(160px, 52cqi);
-		height: min(160px, 52cqi);
+		width: 9.5rem;
+		height: 9.5rem;
+		max-width: min(160px, 70vw);
+		max-height: min(160px, 70vw);
 		aspect-ratio: 1;
 		object-fit: cover;
 		border-radius: 19px;
@@ -45,12 +50,14 @@
 		font-weight: 700;
 		font-size: 1.1rem;
 		letter-spacing: 0.01em;
+		flex-shrink: 0;
 	}
 
 	.handle {
 		margin: 0;
 		font-size: 0.82rem;
 		color: var(--px-muted);
+		flex-shrink: 0;
 	}
 
 	:global(.card.maximized) .profile {

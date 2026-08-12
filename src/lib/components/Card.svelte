@@ -566,11 +566,25 @@
 		flex: 1;
 		min-height: 0;
 		overflow: auto;
+		overflow-x: hidden;
 		background: var(--px-window);
 		padding: 0.75rem 0.85rem;
 		cursor: default;
 		user-select: text;
 		border-top: 1px solid rgba(255, 255, 255, 0.35);
+		/* avoid clipping top content (avatar ring) when body scrolls */
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.card[data-window='profile'] .body {
+		overflow: visible;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card[data-window='profile'] .body > :global(*) {
+		flex: 1 1 auto;
+		min-height: 0;
 	}
 
 	.body.flush {

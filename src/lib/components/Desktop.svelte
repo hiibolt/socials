@@ -246,14 +246,25 @@
 			width: calc(100% - 1.5rem) !important;
 			margin: 0.75rem auto;
 			height: auto !important;
-			min-height: 240px;
+			min-height: 260px;
 			max-height: none !important;
 		}
 
-		.stage :global(.card:not(.maximized)[data-window='projects']),
+		/* room for avatar + labels without clipping (esp. Firefox) */
+		.stage :global(.card:not(.maximized)[data-window='profile']) {
+			min-height: 310px;
+			height: 310px !important;
+		}
+
+		.stage :global(.card:not(.maximized)[data-window='projects']) {
+			min-height: 420px;
+			height: min(70dvh, 560px) !important;
+		}
+
+		/* Wordle needs vertical room for legend + board + keyboard */
 		.stage :global(.card:not(.maximized)[data-window='games']) {
-			min-height: 400px;
-			height: min(72dvh, 560px) !important;
+			min-height: 560px;
+			height: min(78dvh, 640px) !important;
 		}
 
 		.stage :global(.card.maximized) {

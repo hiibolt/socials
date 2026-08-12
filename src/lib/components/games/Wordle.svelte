@@ -252,12 +252,13 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-		gap: 0.32rem;
+		gap: 0.45rem;
 		width: 100%;
 		height: 100%;
-		min-height: 0;
+		min-height: 22rem;
 		box-sizing: border-box;
-		overflow: hidden;
+		overflow: auto;
+		padding-bottom: 0.15rem;
 	}
 
 	.brand {
@@ -265,10 +266,11 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 0.1rem;
+		gap: 0.2rem;
 		width: 100%;
 		text-align: center;
 		flex-shrink: 0;
+		margin-bottom: 0.15rem;
 	}
 
 	.title-row {
@@ -336,7 +338,8 @@
 		justify-content: center;
 		/* claim most of the vertical free space for the letter grid */
 		flex: 1 1 auto;
-		min-height: 0;
+		min-height: 11.5rem;
+		margin-top: 0.15rem;
 		gap: clamp(0.2rem, 1cqh, 0.45rem);
 	}
 

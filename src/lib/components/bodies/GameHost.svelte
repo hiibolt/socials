@@ -15,10 +15,10 @@
 <style>
 	.host {
 		height: 100%;
-		min-height: 0;
+		min-height: 20rem;
 		min-width: 0;
 		width: 100%;
-		padding: 0.35rem 0.2rem 0.4rem;
+		padding: 0.4rem 0.25rem 0.5rem;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
