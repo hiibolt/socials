@@ -2,6 +2,14 @@
 	import { onMount } from 'svelte';
 	import { loadWordle } from '$lib/games/cache';
 	import { gameSettings } from '$lib/games/settings.svelte';
+	import wordListRaw from '$lib/data/wordle-words.txt?raw';
+
+	const VALID = new Set(
+		wordListRaw
+			.split(/\s+/)
+			.filter(Boolean)
+			.map((w) => w.toUpperCase())
+	);
 
 	type Mark = 'correct' | 'present' | 'absent' | 'empty';
 
@@ -106,6 +114,10 @@
 			return;
 		}
 		const g = current.toUpperCase();
+		if (!VALID.has(g) && g !== answer) {
+			message = 'not a word';
+			return;
+		}
 		const hardErr = hardModeError(g);
 		if (hardErr) {
 			message = hardErr;
@@ -248,6 +260,11 @@
 
 <style>
 	.wordle {
+		--wordle-font: 'SF Pro Text', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue',
+			Arial, sans-serif;
+		font-family: var(--wordle-font);
+		font-variant-numeric: tabular-nums;
+		-webkit-font-smoothing: antialiased;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -282,6 +299,7 @@
 
 	.title {
 		margin: 0;
+		font-family: var(--font-pixel);
 		font-size: 0.95rem;
 		font-weight: 700;
 		letter-spacing: 0.14em;
@@ -294,6 +312,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.25rem;
+		font-family: var(--font-pixel);
 		font-size: 0.58rem;
 		color: var(--px-muted);
 		font-weight: 600;
@@ -357,8 +376,10 @@
 		place-items: center;
 		border: 1.5px solid rgba(0, 0, 0, 0.24);
 		border-radius: 5px;
+		font-family: var(--wordle-font);
 		font-weight: 700;
 		font-size: clamp(0.78rem, 3.3cqh, 1.55rem);
+		letter-spacing: 0;
 		text-transform: uppercase;
 		background: rgba(255, 255, 255, 0.82);
 	}
@@ -423,7 +444,7 @@
 	}
 
 	.key {
-		font: inherit;
+		font-family: var(--wordle-font);
 		font-weight: 600;
 		min-width: clamp(1.35rem, 3.8cqh, 2.55rem);
 		padding: clamp(0.28rem, 1cqh, 0.58rem) 0.16rem;

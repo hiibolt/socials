@@ -684,14 +684,18 @@
 	}
 
 	.cell.notes {
-		padding: 1px;
+		padding: 0;
+		place-items: stretch;
 	}
 
 	.note-grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-rows: repeat(3, minmax(0, 1fr));
 		width: 100%;
 		height: 100%;
+		align-self: stretch;
+		justify-self: stretch;
 		font-family: var(--sudoku-font);
 		font-variant-numeric: tabular-nums;
 		font-size: clamp(0.34rem, 1.5cqh, 0.8rem);
@@ -703,6 +707,10 @@
 	.note-grid span {
 		display: grid;
 		place-items: center;
+		min-width: 0;
+		min-height: 0;
+		width: 100%;
+		height: 100%;
 		position: relative;
 		z-index: 0;
 	}
